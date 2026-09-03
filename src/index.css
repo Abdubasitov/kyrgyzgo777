@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ============================================================
+   ДИЗАЙН-СИСТЕМА KyrgyzGo777
+   Палитра взята из логотипа (снежный барс + юрта, зелёный круг):
+   тёмно-зелёный лес, светлая зелень маршрута, тёплый "войлочный"
+   камень вместо клише-терракоты, приглушённое золото для акцентов
+   орнамента.
+   ============================================================ */
+@theme {
+  --color-forest-950: #0a2415;
+  --color-forest-800: #0f3d22;
+  --color-forest-600: #1d6b3b;
+  --color-forest-500: #257a45;
+  --color-forest-400: #4fa968;
+  --color-route: #3ddc73; /* линия маршрута на карте */
+
+  --color-stone-50: #f2f4ee;
+  --color-stone-100: #e9ebe0;
+  --color-stone-300: #d8d2bd;
+
+  --color-ink: #14140f;
+  --color-gold: #b8912f;
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-stone-50);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+main, #root {
+  background: transparent;
+}
+
+
+
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* Уважаем пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Leaflet: убираем стандартную тень у попапов, чтобы вписать в наш стиль */
+.leaflet-container {
+  font-family: var(--font-body);
+  background: var(--color-stone-100);
+}
