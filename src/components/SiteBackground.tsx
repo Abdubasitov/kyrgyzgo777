@@ -4,18 +4,36 @@ import TundukSun from './TundukSun'
 export default function SiteBackground() {
 	return (
 		<div className='fixed inset-0 -z-10 overflow-hidden bg-stone-50'>
+			{/*
+				Фон: «Song-Kul, Kyrgyzstan» — оз. Сон-Кёль и хребет Кунгёй-Ала-Тоо (Тянь-Шань).
+				Фото: Ninara (Flickr), CC BY 2.0, Wikimedia Commons:
+				https://commons.wikimedia.org/wiki/File:Song-Kul,_Kyrgyzstan_(44580008121).jpg
+				Файл: public/images/background-mountains.jpg
+			*/}
+			<img
+				src='/images/background-mountains.jpg'
+				alt=''
+				aria-hidden
+				className='absolute inset-0 h-full w-full object-cover opacity-[0.5]'
+				style={{ objectPosition: 'center 28%' }}
+			/>
+
+			{/* Тёплый свет: «рассвет» за солнцем-орнаментом */}
 			<motion.div
 				className='absolute inset-0'
 				style={{
 					background:
-						'radial-gradient(55% 45% at 50% 6%, rgba(184,145,47,0.20) 0%, rgba(79,169,104,0.10) 40%, rgba(242,244,238,0) 72%)',
+						'radial-gradient(60% 48% at 50% 4%, rgba(184,145,47,0.24) 0%, rgba(79,169,104,0.12) 45%, rgba(242,244,238,0) 75%)',
 				}}
-				animate={{ opacity: [0.75, 1, 0.75] }}
-				transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+				animate={{ opacity: [0.7, 1, 0.7] }}
+				transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
 			/>
 
+			{/* Лёгкая вуаль для читаемости: светлее сверху и у футера */}
+			<div className='absolute inset-0 bg-gradient-to-b from-stone-50/70 via-stone-50/20 to-stone-50/85' />
+
 			<motion.div
-				className='absolute -left-32 top-[28%] h-96 w-96 rounded-full bg-forest-400/[0.10] blur-3xl'
+				className='absolute -left-32 top-[28%] h-96 w-96 rounded-full bg-forest-400/[0.09] blur-3xl'
 				animate={{ x: [0, 36, 0], y: [0, -26, 0] }}
 				transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut' }}
 			/>
@@ -39,18 +57,6 @@ export default function SiteBackground() {
 				/>
 				<TundukSun size={400} className='relative opacity-[0.5]' />
 			</div>
-
-			<svg
-				className='absolute bottom-0 left-0 w-full text-forest-800/[0.055]'
-				viewBox='0 0 1440 220'
-				preserveAspectRatio='none'
-				aria-hidden
-			>
-				<path
-					fill='currentColor'
-					d='M0,170 L130,105 L270,155 L430,55 L610,145 L770,85 L950,165 L1140,95 L1310,150 L1440,115 L1440,220 L0,220 Z'
-				/>
-			</svg>
 		</div>
 	)
 }

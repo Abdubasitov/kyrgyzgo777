@@ -34,28 +34,29 @@ export default function Hero() {
 				variants={container}
 				initial='hidden'
 				animate='visible'
-				className='relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-5 pb-20'
+				className='relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-5 pb-25'
 			>
 				<motion.span
 					variants={item}
 					className='text-stone-50/70 text-sm font-medium tracking-wide'
 				>
-					Тянь-Шань · Иссык-Куль · Памиро-Алай
+					Тянь-Шань · Иссык-Куль · Ташкент · Самарканд
 				</motion.span>
 
 				<motion.h1
 					variants={item}
-					className='mt-3 font-display text-5xl sm:text-7xl font-bold text-stone-50 max-w-2xl leading-[0.95]'
+					className='mt-3 font-display text-5xl sm:text-7xl font-bold text-stone-50 max-w-2xl leading-[1.1]'
 				>
-					Кыргызстан таким, каким его знают только местные
+					Туры по Центральной Азии
 				</motion.h1>
 
 				<motion.p
 					variants={item}
 					className='mt-5 max-w-lg text-stone-50/80 text-base sm:text-lg'
 				>
-					Юрточные лагеря, конные переходы и маршруты, которые мы прошли сами —
-					прежде чем предложить их вам.
+					Юрточные лагеря, катания на лошадях, горы, живописная природа,
+					ознакомления с традициями, культурами, национальной кухней кочевого
+					народа и история великой шелковой пути каравана.
 				</motion.p>
 
 				<motion.div variants={item} className='mt-8 flex flex-wrap gap-4'>

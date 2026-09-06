@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom'
-import WalkingIbirs from './components/WalkingIbirs'
 import AdminLayout from './layouts/AdminLayout'
 import PublicLayout from './layouts/PublicLayout'
 import About from './pages/About'
@@ -16,8 +15,6 @@ import AdminTours from './pages/admin/Tours'
 export default function App() {
 	return (
 		<>
-			<WalkingIbirs />
-
 			<Routes>
 				<Route element={<PublicLayout />}>
 					<Route path='/' element={<Home />} />

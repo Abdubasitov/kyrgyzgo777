@@ -26,7 +26,7 @@ const WHY_US = [
 		icon: Users,
 		title: 'Опытные гиды',
 		description:
-			'Наши гиды — местные жители, знающие горы как свои пять пальцев',
+			'У нас опотные гиды знающие все лакации и истории каждой страны.',
 	},
 	{
 		icon: Shield,
@@ -115,7 +115,7 @@ export default function Home() {
 		<>
 			<Hero />
 			<section className='border-b border-stone-300/50  '>
-				<div className='mx-auto grid max-w-6xl grid-cols-3 divide-x divide-stone-200 px-5 py-10 text-center'>
+				<div className='mx-auto grid max-w-6xl grid-cols-3 divide-x divide-stone-200/50 px-5 py-10 text-center rounded-2xl '>
 					{STATS.map(stat => (
 						<div key={stat.label} className='px-4'>
 							<stat.icon className='mx-auto mb-2 h-8 w-8 text-forest-400' />
@@ -145,7 +145,7 @@ export default function Home() {
 					<div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
 						{WHY_US.map((item, i) => (
 							<AnimatedSection key={item.title} delay={i * 0.1}>
-								<div className='group h-full rounded-2xl bg-white/80 backdrop-blur-sm p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md'>
+								<div className='group h-full rounded-2xl backdrop-blur-md backdrop-blur-md border border-stone-300/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md'>
 									<div className='mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-forest-100 text-forest-600 transition-colors group-hover:bg-forest-600 group-hover:text-white'>
 										<item.icon className='h-7 w-7' />
 									</div>
@@ -199,14 +199,14 @@ export default function Home() {
 								Отзывы путешественников
 							</h2>
 							<p className='text-ink'>
-								Что говорят те, кто уже побывал с нами в горах
+								Что говорят те, кто уже побывал с нами в путешествиях
 							</p>
 						</div>
 					</AnimatedSection>
 					<div className='grid gap-6 md:grid-cols-3'>
 						{REVIEWS.map((review, i) => (
 							<AnimatedSection key={review.name} delay={i * 0.15}>
-								<div className='flex h-full flex-col rounded-2xl bg-white/80 p-6 shadow-2xl shadow-black/30 ring-1 ring-black/8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:bg-white'>
+								<div className='flex h-full flex-col rounded-2xl backdrop-blur-md backdrop-blur-md border border-stone-300/70 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] hover:bg-white/80'>
 									<div className='mb-4 flex gap-1'>
 										{[...Array(review.rating)].map((_, j) => (
 											<Star key={j} className='h-4 w-4 fill-gold text-gold' />
@@ -226,39 +226,37 @@ export default function Home() {
 				</div>
 			</section>
 			<section className='relative overflow-hidden  py-20 '>
-				<div className='absolute inset-0 opacity-10'>
-					<div className='absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white' />
-					<div className='absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-white' />
-					<div className='absolute left-1/2 top-1/2 h-48 w-48 rounded-full bg-white' />
+				<div className='relative z-10 mx-auto max-w-3xl  py-12 '>
+					<motion.div
+						className='text-center'
+						initial={{ opacity: 0, scale: 0.95 }}
+						whileInView={{ opacity: 1, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+					>
+						<h2 className='font-display text-3xl sm:text-4xl font-bold text-ink mb-4'>
+							Готовы к приключению?
+						</h2>
+						<p className='mb-8 text-lg text-ink/80 max-w-xl mx-auto'>
+							Свяжитесь с нами, и мы подберём идеальный маршрут под ваши
+							пожелания
+						</p>
+						<div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
+							<Link
+								to='/contacts'
+								className='inline-flex items-center gap-2 rounded-full backdrop-blur-md px-8 py-4 font-semibold text-forest-700 hover:bg-stone-50 transition-colors shadow-lg'
+							>
+								Связаться с нами <ArrowRight className='h-5 w-5' />
+							</Link>
+							<Link
+								to='/tours'
+								className='inline-flex items-center gap-2 rounded-full border-2 border-ink px-8 py-4 font-semibold text-ink hover:bg-stone-50/10 transition-colors'
+							>
+								Выбрать тур
+							</Link>
+						</div>
+					</motion.div>
 				</div>
-				<motion.div
-					className='relative z-10 mx-auto max-w-3xl px-5 text-center'
-					initial={{ opacity: 0, scale: 0.95 }}
-					whileInView={{ opacity: 1, scale: 1 }}
-					viewport={{ once: true }}
-					transition={{ duration: 0.6 }}
-				>
-					<h2 className='font-display text-3xl sm:text-4xl font-bold text-ink mb-4'>
-						Готовы к приключению?
-					</h2>
-					<p className='mb-8 text-lg text-ink/80 max-w-xl mx-auto'>
-						Свяжитесь с нами, и мы подберём идеальный маршрут под ваши пожелания
-					</p>
-					<div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
-						<Link
-							to='/contacts'
-							className='inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-forest-700 hover:bg-stone-50 transition-colors shadow-lg'
-						>
-							Связаться с нами <ArrowRight className='h-5 w-5' />
-						</Link>
-						<Link
-							to='/tours'
-							className='inline-flex items-center gap-2 rounded-full border-2 border-ink px-8 py-4 font-semibold text-ink hover:bg-stone-50/10 transition-colors'
-						>
-							Выбрать тур
-						</Link>
-					</div>
-				</motion.div>
 			</section>
 		</>
 	)

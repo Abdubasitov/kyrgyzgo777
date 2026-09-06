@@ -37,7 +37,7 @@ export default function TourDetail() {
   const path: [number, number][] = tour.route.map(p => [p.lat, p.lng]);
 
   return (
-    <article className="bg-white">
+    <article>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -86,7 +86,7 @@ export default function TourDetail() {
           </div>
 
           <aside className="lg:col-span-1">
-            <div className="sticky top-24 rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <div className="sticky top-24 rounded-2xl border border-stone-300/70 bg-white/60 backdrop-blur-md p-6 shadow-sm">
               <div className="text-sm text-ink/60">Стоимость от</div>
               <div className="font-display text-3xl font-bold text-forest-600 mt-1">
                 {formatPrice(tour.price, tour.currency)}
@@ -112,7 +112,7 @@ export default function TourDetail() {
           {tour.route.length === 0 ? (
             <p className="text-ink/60">Маршрут для этого тура пока не задан.</p>
           ) : (
-            <div className="rounded-2xl overflow-hidden border border-stone-200 h-[480px]">
+            <div className="rounded-2xl overflow-hidden border border-stone-300/70 bg-white/60 backdrop-blur-md h-[480px]">
               <MapContainer
                 center={center}
                 zoom={8}

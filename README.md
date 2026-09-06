@@ -43,6 +43,9 @@ npm run dev
 `src="..."` в компонентах (везде рядом стоит комментарий `TODO`):
 
 - `public/images/logo.png` — логотип (сейчас вместо него иконка гор)
+- `public/images/background-mountains.jpg` — фон всей страницы: оз. Сон-Кёль
+  (фото Ninara, лицензия CC BY 2.0 — замените на своё фото, источник указан в
+  `src/components/SiteBackground.tsx`)
 - `public/images/tours/*.jpg` — обложки и галереи туров (Часть 3-4)
 
 ## План частей

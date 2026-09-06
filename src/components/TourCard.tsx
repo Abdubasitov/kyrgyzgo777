@@ -9,7 +9,7 @@ export default function TourCard({ tour }: { tour: Tour }) {
 		<motion.article
 			whileHover={{ y: -6 }}
 			transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-			className='group overflow-hidden rounded-2xl bg-white border border-stone-300'
+			className='group overflow-hidden rounded-2xl backdrop-blur-md backdrop-blur-md border border-stone-300/70 shadow-sm'
 		>
 			<Link to={`/tours/${tour.id}`}>
 				<div className='relative aspect-[4/3] overflow-hidden bg-stone-100'>

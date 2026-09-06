@@ -28,6 +28,7 @@ export default function Tours() {
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-12">
+      <div className="rounded-2xl backdrop-blur-md bg-white/60 border border-stone-300/70 shadow-sm p-6">
       <h1 className="font-display text-4xl font-bold text-forest-800 mb-8">
         Каталог туров
       </h1>
@@ -87,6 +88,7 @@ export default function Tours() {
           </div>
         </>
       )}
+      </div>
     </section>
   );
 }

@@ -1,21 +1,24 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const NAV_LINKS = [
-	{ to: '/', label: 'Главная' },
-	{ to: '/tours', label: 'Туры' },
-	{ to: '/about', label: 'О нас' },
-	{ to: '/contacts', label: 'Контакты' },
+	{ to: '/', key: 'nav.home' },
+	{ to: '/tours', key: 'nav.tours' },
+	{ to: '/about', key: 'nav.about' },
+	{ to: '/contacts', key: 'nav.contacts' },
 ]
 
 export default function Header() {
 	const [open, setOpen] = useState(false)
+	const { t } = useTranslation()
 
 	return (
 		<header className='sticky top-0 z-50 bg-stone-50/60 backdrop-blur-md border-b border-stone-300/50'>
-			<div className='mx-auto max-w-6xl px-5 h-24 flex items-center justify-between'>
+			<div className='mx-auto max-w-6xl px-5 h-24 flex items-center justify-between gap-3'>
 				<NavLink to='/' className='flex items-center gap-2 group'>
 					<img
 						src='/images/IMG_1738.PNG'
@@ -38,24 +41,27 @@ export default function Header() {
 								}`
 							}
 						>
-							{link.label}
+							{t(link.key)}
 						</NavLink>
 					))}
 					<NavLink
 						to='/tours'
 						className='rounded-full bg-forest-600 px-5 py-2 text-sm font-semibold text-stone-50 hover:bg-forest-800 transition-colors'
 					>
-						Подобрать тур
+						{t('header.pickTour')}
 					</NavLink>
 				</nav>
 
-				<button
-					className='md:hidden text-ink'
-					aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
-					onClick={() => setOpen(v => !v)}
-				>
-					{open ? <X className='h-6 w-6' /> : <Menu className='h-6 w-6' />}
-				</button>
+				<div className='flex items-center gap-2'>
+					<LanguageSwitcher />
+					<button
+						className='md:hidden text-ink'
+						aria-label={open ? t('header.menuClose') : t('header.menuOpen')}
+						onClick={() => setOpen(v => !v)}
+					>
+						{open ? <X className='h-6 w-6' /> : <Menu className='h-6 w-6' />}
+					</button>
+				</div>
 			</div>
 
 			<AnimatePresence>
@@ -78,7 +84,7 @@ export default function Header() {
 										`py-2 text-sm font-medium ${isActive ? 'text-forest-600' : 'text-ink/70'}`
 									}
 								>
-									{link.label}
+									{t(link.key)}
 								</NavLink>
 							))}
 						</div>

@@ -64,3 +64,35 @@ h1, h2, h3, .font-display {
   font-family: var(--font-body);
   background: var(--color-stone-100);
 }
+
+/* ============================================================
+   Декор страницы «О нас»: бегущая строка, плакатный «777»,
+   буквица в начале истории
+   ============================================================ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 2px var(--color-gold);
+  color: transparent;
+}
+
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.4em;
+  line-height: 0.82;
+  float: left;
+  padding-right: 0.12em;
+  color: var(--color-forest-600);
+}
