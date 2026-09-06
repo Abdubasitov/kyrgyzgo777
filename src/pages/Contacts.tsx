@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion'
 import { FaInstagram, FaLocationDot, FaWhatsapp } from 'react-icons/fa6'
+import { useTranslation } from 'react-i18next'
 
 export default function Contacts() {
+	const { t } = useTranslation()
+
 	return (
 		<section className='mx-auto max-w-4xl px-5 py-16'>
 			<motion.div
@@ -10,17 +13,16 @@ export default function Contacts() {
 				transition={{ duration: 0.5 }}
 			>
 				<h1 className='font-display text-4xl font-bold text-forest-800 mb-4'>
-					Контакты
+					{t('contacts.title')}
 				</h1>
 				<p className='text-ink/60 mb-12 max-w-xl'>
-					Свяжитесь с нами любым удобным способом. Мы ответим в течение часа в
-					рабочее время.
+					{t('contacts.subtitle')}
 				</p>
 
 				<div className='grid gap-6 md:grid-cols-2'>
 					<div className='backdrop-blur-md rounded-2xl border border-stone-200 p-6 shadow-sm'>
 						<h2 className='font-display text-xl font-bold text-forest-800 mb-6'>
-							Связаться с нами
+							{t('contacts.card.title')}
 						</h2>
 
 						<div className='space-y-5'>
@@ -34,7 +36,9 @@ export default function Contacts() {
 									<FaWhatsapp className='h-6 w-6 text-white' />
 								</div>
 								<div>
-									<div className='text-sm text-ink/60'>WhatsApp</div>
+									<div className='text-sm text-ink/60'>
+										{t('contacts.whatsapp')}
+									</div>
 									<div className='font-medium text-ink/90 group-hover:text-green-600 transition-colors'>
 										+996 999 474 797
 									</div>
@@ -51,7 +55,9 @@ export default function Contacts() {
 									<FaInstagram className='h-6 w-6 text-white' />
 								</div>
 								<div>
-									<div className='text-sm text-ink/60'>Instagram</div>
+									<div className='text-sm text-ink/60'>
+										{t('contacts.instagram')}
+									</div>
 									<div className='font-medium text-ink/90 group-hover:text-pink-600 transition-colors'>
 										@kyrgyzgo777
 									</div>
@@ -63,9 +69,11 @@ export default function Contacts() {
 									<FaLocationDot className='h-5 w-5 text-forest-600' />
 								</div>
 								<div>
-									<div className='text-sm text-ink/60'>Локация</div>
+									<div className='text-sm text-ink/60'>
+										{t('contacts.location')}
+									</div>
 									<div className='font-medium text-ink/90'>
-										г. Манас, Кыргызстан
+										Кыргызская Республика, г. Бишкек
 									</div>
 								</div>
 							</div>
@@ -74,22 +82,22 @@ export default function Contacts() {
 
 					<div className='backdrop-blur-md rounded-2xl border border-stone-200 p-6 shadow-sm'>
 						<h2 className='font-display text-xl font-bold text-forest-800 mb-6'>
-							Напишите нам
+							{t('contacts.form.title')}
 						</h2>
 						<form className='space-y-4' onSubmit={e => e.preventDefault()}>
 							<div>
 								<label className='block text-sm font-medium text-ink/70 mb-1'>
-									Ваше имя
+									{t('contacts.form.name')}
 								</label>
 								<input
 									type='text'
 									className='w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-forest-500 focus:border-forest-500 outline-none transition-colors'
-									placeholder='Как к вам обращаться?'
+									placeholder={t('contacts.form.namePlace')}
 								/>
 							</div>
 							<div>
 								<label className='block text-sm font-medium text-ink/70 mb-1'>
-									Телефон или WhatsApp
+									{t('contacts.form.phone')}
 								</label>
 								<input
 									type='tel'
@@ -99,19 +107,19 @@ export default function Contacts() {
 							</div>
 							<div>
 								<label className='block text-sm font-medium text-ink/70 mb-1'>
-									Сообщение
+									{t('contacts.form.message')}
 								</label>
 								<textarea
 									rows={4}
 									className='w-full px-4 py-2.5 rounded-lg border border-stone-300 focus:ring-2 focus:ring-forest-500 focus:border-forest-500 outline-none transition-colors resize-none'
-									placeholder='Какой тур вас интересует? Когда планируете поездку?'
+									placeholder={t('contacts.form.messagePlace')}
 								/>
 							</div>
 							<button
 								type='submit'
 								className='w-full py-3 px-6 rounded-lg bg-forest-600 text-white font-semibold hover:bg-forest-700 transition-colors'
 							>
-								Отправить заявку
+								{t('contacts.form.submit')}
 							</button>
 						</form>
 					</div>
